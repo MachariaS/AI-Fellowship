@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Lab Fellowship Program | Impact Africa Network</title>
+    <style>
+      :root {
+        --primary: #eb453d;
+        --secondary: #5a86c9;
+        --tertiary: #31ac54;
+        --accent: #fcbc12;
+        --dark: #122742;
+        --light: #f8f9fa;
+        --gray: #6c757d;
+        --light-gray: #e9ecef;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--dark) 100%
+        );
+        color: white;
+        padding: 5rem 0;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      section:nth-child(even) {
+        background-color: white;
+      }
+
+      h2 {
+        color: var(--primary);
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 50%;
+        height: 3px;
+        background-color: var(--primary);
+      }
+
+      h3 {
+        color: var(--dark);
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card h3 {
+        color: var(--primary);
+        border-bottom: 2px solid var(--light-gray);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .timeline {
+        position: relative;
+        margin: 2rem 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: var(--light-gray);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+      }
+
+      .timeline-item {
+        padding: 1rem 2rem;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .timeline-left {
+        left: 0;
+      }
+
+      .timeline-right {
+        left: 50%;
+      }
+
+      .timeline-left::after {
+        background-color: var(--primary);
+        right: -10px;
+      }
+
+      .timeline-right::after {
+        background-color: var(--secondary);
+        left: -10px;
+      }
+
+      .timeline-content {
+        padding: 1rem;
+        background-color: white;
+        position: relative;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .timeline-date {
+        color: var(--primary);
+        font-weight: bold;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      ul {
+        list-style-position: inside;
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .logo {
+        max-width: 200px;
+        margin-bottom: 1rem;
+      }
+
+      .text-primary {
+        color: var(--primary);
+      }
+      .text-secondary {
+        color: var(--secondary);
+      }
+      .text-tertiary {
+        color: var(--tertiary);
+      }
+      .text-accent {
+        color: var(--accent);
+      }
+
+      .bg-primary {
+        background-color: var(--primary);
+        color: white;
+      }
+      .bg-secondary {
+        background-color: var(--secondary);
+        color: white;
+      }
+      .bg-tertiary {
+        background-color: var(--tertiary);
+        color: white;
+      }
+      .bg-accent {
+        background-color: var(--accent);
+        color: var(--dark);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        margin: 0.5rem;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #d03c35;
+      }
+
+      .btn-outline {
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .timeline::before {
+          left: 31px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        .timeline-item::after {
+          left: 21px;
+        }
+
+        .timeline-left::after,
+        .timeline-right::after {
+          left: 21px;
+        }
+
+        .timeline-right {
+          left: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <img
+          src="IAN Logo_Main (1).png"
+          alt="Impact Africa Network Logo"
+          class="logo"
+        />
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="container">
+        <h1>AI Lab Fellowship Program</h1>
+        <p>
+          Equipping young talented Africans with AI skills and mindset to create
+          innovative solutions for Africa's digital transformation
+        </p>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <h2>Program Overview</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Mission</h3>
+            <p>
+              To equip young talented Africans with AI skills and mindset to
+              create innovative solutions for existing IAN startups and develop
+              new AI-powered ventures that contribute to Africa's digital
+              transformation.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Duration</h3>
+            <p>
+              3-month intensive program (2-3 days per week at Launchpad
+              co-working space)
+            </p>
+          </div>
+          <div class="card">
+            <h3>Target Participants</h3>
+            <p>
+              Recent graduates and young professionals entering the AI space
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Program Structure</h2>
+
+        <div class="card">
+          <h3 class="text-primary">1. Selection Process - March 31, 2025</h3>
+          <h4>AI Hackathon Pipeline:</h4>
+          <ul>
+            <li>Host AI hackathons after every 2 months</li>
+            <li>Identify top performers & invite for the screening phase</li>
+          </ul>
+
+          <h4>Two-Week Screening Process:</h4>
+          <ul>
+            <li>
+              Candidates work on a real-world scenario with limited access to
+              products
+            </li>
+            <li>
+              Evaluation criteria: technical skills, problem-solving approach,
+              collaboration ability, and innovative thinking
+            </li>
+            <li>
+              Use technical & non technical assessment committee e.g Pick
+              project Leads
+            </li>
+          </ul>
+
+          <h4>Final Selection:</h4>
+          <ul>
+            <li>
+              8-12 candidates per cohort based on performance of their pitch,
+              potential & organization capacity
+            </li>
+            <li>
+              Select diverse background e.g one person could take product
+              ownership
+            </li>
+            <li>
+              Last day used as onboarding day: Introduction to IAN, AI ethical
+              considerations
+            </li>
+          </ul>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <h3 class="timeline-date">Week 1: April 1-7, 2025</h3>
+              <h4>Scoping and Work Structures</h4>
+              <ul>
+                <li>Scoping of the AI solution and roadmap</li>
+                <li>Roles alignment and assignments</li>
+                <li>Mentor relationship & feedback system initiated</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item timeline-right">
+            <div class="timeline-content">
+              <h3 class="timeline-date">Week 2-6: April 8 - May 12, 2025</h3>
+              <h4>Development Phase</h4>
+              <ul>
+                <li>
+                  Hands-on project work with portfolio companies (2 days/week)
+                </li>
+                <li>Technical workshops and skill development (1 day/week)</li>
+                <li>Weekly progress reviews and feedback sessions</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <h3 class="timeline-date">Week 7-8: May 13-26, 2025</h3>
+              <h4>Solution Refinement</h4>
+              <ul>
+                <li>Prototype testing and iteration</li>
+                <li>User feedback integration from teams & actual users</li>
+                <li>Technical documentation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item timeline-right">
+            <div class="timeline-content">
+              <h3 class="timeline-date">Week 9-10: May 27 - June 9, 2025</h3>
+              <h4>Finalization & Presentation</h4>
+              <ul>
+                <li>Final solution development</li>
+                <li>Pitch preparation</li>
+                <li>Demo Day preparation</li>
+                <li>Documentation completion</li>
+                <li>Integration into existing system</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="text-secondary">3. Mentorship Structure</h3>
+          <h4>Internal Technical Mentors:</h4>
+          <ul>
+            <li>IAN Senior Developers (1:4 mentor-to-fellow ratio)</li>
+            <li>Weekly structured sessions and on-demand support</li>
+          </ul>
+
+          <h4>External Mentor Network:</h4>
+          <ul>
+            <li>Industry experts in AI and relevant domains</li>
+            <li>Monthly masterclasses and review sessions</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="text-tertiary">4. Resources & Support</h3>
+          <h4>Technical Infrastructure:</h4>
+          <ul>
+            <li>Cloud computing credits (AWS, GCP, or Azure)</li>
+            <li>Development environments and tools</li>
+            <li>Access to relevant APIs and datasets</li>
+          </ul>
+
+          <h4>Learning Resources:</h4>
+          <ul>
+            <li>Curated learning paths for different AI domains</li>
+            <li>Access to online courses and technical documentation</li>
+            <li>Internal knowledge base and best practices</li>
+          </ul>
+
+          <h4>Workspace:</h4>
+          <ul>
+            <li>
+              Dedicated area within Launchpad coworking space (Lower Ground)
+            </li>
+            <li>Trello/other tool for Project Management</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="text-accent">5. Compensation & Benefits</h3>
+          <h4>Financial Support:</h4>
+          <ul>
+            <li>Monthly stipend (30,000-40,000 KES depending on experience)</li>
+          </ul>
+
+          <h4>Professional Benefits:</h4>
+          <ul>
+            <li>Full membership to Launchpad co-working space</li>
+            <li>Networking opportunities with ecosystem partners</li>
+            <li>Priority consideration for 1-year Innovation Fellowship</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="text-primary">6. Post-Fellowship</h3>
+          <h4>Venture Track:</h4>
+          <ul>
+            <li>
+              Fellows with promising standalone ideas enter Kinetic Program
+            </li>
+            <li>Support to develop business models and seek funding</li>
+          </ul>
+
+          <h4>Talent Network:</h4>
+          <ul>
+            <li>
+              All fellows remain within our alumni network with ongoing
+              engagement e.g news letter, events e.t.c
+            </li>
+            <li>Opportunity to mentor future cohorts</li>
+            <li>Access to other job opportunities within IAN</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Success Metrics</h2>
+        <div class="grid">
+          <div class="card">
+            <h3 class="text-primary">Output Metrics</h3>
+            <ul>
+              <li>2-3 AI solutions developed per quarter</li>
+              <li>
+                Technical documentation and AI-First Thinking (knowledge
+                transfer)
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="text-secondary">Impact Metrics</h3>
+            <ul>
+              <li>
+                Revenue/cost impact of AI solutions for portfolio companies
+              </li>
+              <li>User engagement metrics for implemented solutions</li>
+              <li>Improvement in efficiency/productivity metrics</li>
+              <li>Impact stories & attracting funding</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="text-tertiary">Talent Development Metrics</h3>
+            <ul>
+              <li>Conversion to full time fellows/staff</li>
+              <li>Retention rates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <img
+          src="IAN Logowheel_Main.png"
+          alt="Impact Africa Network Logo Mark"
+          style="width: 60px; margin-bottom: 1rem"
+        />
+        <p>© 2025 Impact Africa Network. All Rights Reserved.</p>
+        <p>Changing the African Narrative</p>
+      </div>
+    </footer>
+  </body>
+</html>
